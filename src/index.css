@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+body {
+    font-family: primary;
+}
+
+@theme {
+    --font-primary:"Playfair Display", 'serif';
+}

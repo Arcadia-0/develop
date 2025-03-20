@@ -12,7 +12,7 @@ const Count = () => {
     }
 
     return (
-        <div className="flex items-center justify-center space-x-4">
+        <div className="py-10 flex items-center justify-center space-x-4">
             <button 
                 className="bg-red-500 text-white p-4 rounded-full shadow-lg transform hover:scale-105 transition duration-300"
                 onClick={decrease}
