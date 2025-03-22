@@ -31,7 +31,7 @@ const Random = () => {
         <h1 className="text-4xl font-extrabold text-gray-800 mb-8">Rastgele Özlü Söz</h1>
         <button 
           onClick={() => setRandom(randomItems[Math.floor(Math.random() * randomItems.length)])}
-          className="bg-teal-500 text-white px-8 py-4 rounded-full text-lg font-medium shadow-lg transition duration-300 hover:bg-teal-600 transform hover:scale-105 mb-6"
+          className="cursor-pointer bg-teal-500 text-white px-8 py-4 rounded-full text-lg font-medium shadow-lg transition duration-300 hover:bg-teal-600 transform hover:scale-105 mb-6"
         >
           Rastgele söz
         </button>
