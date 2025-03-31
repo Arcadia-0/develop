@@ -4,7 +4,8 @@ import Count from './components/Count/Count';
 import MainPage from './components/MainPage/MainPage';
 import ShowContent from './components/ShowContent/ShowContent';
 import Random from './components/Random/Random';
-import Todo from './components/Todo/Todo';
+import TaskCreate from './components/Todo/TaskCreate';
+
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/project1" element={<Count />} />
         <Route path="/project2" element={<ShowContent />} />
         <Route path="/project3" element={<Random />} />
-        <Route path="/project4" element={<Todo />} />
+        <Route path="/project4" element={<TaskCreate />} />
       
       </Routes>
     </Router>
