@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const TaskCreate = () => {
+function TaskCreate({onCreate}) {
 
   const [title, setTitle] = useState('');
   const [taskDesc, setTaskDesc] = useState('');
@@ -16,6 +16,9 @@ const TaskCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    onCreate(title,taskDesc);
+    setTitle("");      
+    setTaskDesc("");   
   }
 
 

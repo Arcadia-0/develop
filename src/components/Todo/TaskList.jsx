@@ -1,8 +1,15 @@
 import React from 'react'
+import TaskShow from './TaskShow'
 
-const TaskList = () => {
+const TaskList = ({tasks}) => {
   return (
-    <div>TaskList</div>
+    <div>
+      {tasks.map((task)=>{
+        return (
+          <TaskShow key={task.id} task={task}/>
+        )
+      })}
+    </div>
   )
 }
 
