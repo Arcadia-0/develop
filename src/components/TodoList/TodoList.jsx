@@ -2,20 +2,24 @@ import { useState } from "react";
 
 
 const TodoList = () => {  
+const [deger,setDeger] = useState("");
+  const [gorevler, setGorevler] = useState([]);
 
-
-    const [deger, setDeger] = useState("");
-    const [gorevler, setGorevler] = useState([]);
-
-    const degerDegistir = (e) => {
-        setDeger(e.target.value);
-        
-    }
-
-    const addGorev = () => {
-    setGorevler([...gorevler, deger]);  // Eğer spread operatoru kullanmazsak, Her yeni görev ekle dediğimizde aynı görevi güncellemiş olur yeni görev eklememiş oluruz. Ancak spread operatörü kullanırsak, eski göreve yenilerini de eklemiş oluruz. 
+  const gorevEkle = () => {
+    setGorevler([...gorevler,deger]);
     setDeger("");
-    }
+  }
+
+  const gorevSil = (index) => {
+    const yeniGorevler = gorevler.filter((gorev,gorevIndex)=> gorevIndex !== index);
+    setGorevler(yeniGorevler)
+  }
+
+  const handleChange = (e) => {
+    setDeger(e.target.value)
+    
+  }
+    
 
     
 
@@ -26,16 +30,21 @@ const TodoList = () => {
       <input 
       placeholder="Görev Giriniz:"
       value={deger}
-      onChange={degerDegistir} />
+      onChange={handleChange} />
+     
+     <button onClick={gorevEkle}>Görev Ekle</button>
 
-      <button onClick={addGorev}>Görev Ekle</button>
+     <ul>
+      {gorevler.map((gorev,index)=> {
+        return <li key={index}>
+          {gorev}
+          <button onClick={()=> gorevSil(index)}>Sil</button>
+        </li>
+       
+      })}
+     </ul>
     
-
-      <ul>
-        {gorevler.map((gorev,index)=>{
-            return <li key={index}>{gorev}</li>
-        })}
-      </ul>
+     
     </div>
   );
 };
