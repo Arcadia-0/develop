@@ -2,21 +2,21 @@ import { useState } from "react";
 
 
 const TodoList = () => {  
-const [deger,setDeger] = useState("");
-  const [gorevler, setGorevler] = useState([]);
+const [values,setValues] = useState("");
+  const [tasks, setTasks] = useState([]);
 
-  const gorevEkle = () => {
-    setGorevler([...gorevler,deger]);
-    setDeger("");
+  const handleTaskAdd = () => {
+    setTasks([...tasks,values]);
+    setValues("");
   }
 
-  const gorevSil = (index) => {
-    const yeniGorevler = gorevler.filter((gorev,gorevIndex)=> gorevIndex !== index);
-    setGorevler(yeniGorevler)
+  const handleTaskDelete = (index) => {
+    const newTasks = tasks.filter((gorev,gorevIndex)=> gorevIndex !== index);
+    setTasks(newTasks)
   }
 
   const handleChange = (e) => {
-    setDeger(e.target.value)
+    setValues(e.target.value)
     
   }
     
@@ -29,16 +29,16 @@ const [deger,setDeger] = useState("");
     <div className='container mx-auto'>
       <input 
       placeholder="Görev Giriniz:"
-      value={deger}
+      value={values}
       onChange={handleChange} />
      
-     <button onClick={gorevEkle}>Görev Ekle</button>
+     <button onClick={handleTaskAdd}>Görev Ekle</button>
 
      <ul>
-      {gorevler.map((gorev,index)=> {
+      {tasks.map((task,index)=> {
         return <li key={index}>
-          {gorev}
-          <button onClick={()=> gorevSil(index)}>Sil</button>
+          {task}
+          <button onClick={()=> handleTaskDelete(index)}>Sil</button>
         </li>
        
       })}
